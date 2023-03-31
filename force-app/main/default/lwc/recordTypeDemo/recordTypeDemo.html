@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="SAP SOLD - TO(5)" icon-name="standard:database">
+        <template if:true={accList}>
+            <div class="slds-p-around_medium">
+            <lightning-combobox name="Tax Exempt"  label="Tax Exempt" value={tax}  
+            placeholder="-Select-" options={options} onchange={handleChange} ></lightning-combobox>
+    <br/>
+            <lightning-datatable data={accList} columns={columns} key-field="Id">
+            </lightning-datatable>
+
+            <lightning-button onclick={handleClick} label="CLick"></lightning-button>
+        </div></template>
+        <template if:true={error}>
+            {error}
+        </template>
+    </lightning-card>
+    
+    
+</template>

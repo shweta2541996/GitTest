@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Welcome to Boats" icon-name="standard:slack">
+        <lightning-layout >
+
+            <lightning-layout-item size="8">
+
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12">
+                        <c-search-boat onsearch={handleSearch} ></c-search-boat>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <lightning-layout multiple-rows="true">
+                            <template for:each={boats.data} for:item="boat">
+                                     <lightning-layout-item size="4" key={boat.Id}>
+                                     <c-boat boat={boat} ></c-boat>
+                                     </lightning-layout-item>
+                               </template>
+                         </lightning-layout>
+                         
+                    </lightning-layout-item>
+
+                </lightning-layout>
+
+                
+            </lightning-layout-item>
+
+            <lightning-layout-item size="4">
+
+            </lightning-layout-item>
+        </lightning-layout>
+    
+</lightning-card>
+</template>

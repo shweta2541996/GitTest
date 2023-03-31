@@ -1,0 +1,9 @@
+<template>
+        <lightning-card title={boat.Name} icon-name="standard:account">
+           <div class="slds-align_absolute-center" ><img src={boat.Picture__c}  alt="User Image" height="300px" width="300px"/></div> <br/>
+           <div class="slds-p-left_large"> <div>Price : {boat.Price__c} </div>
+            <div>Length :{boat.Length__c} </div>
+            <div>Type : {boat.BoatType__r.Name} </div></div><br/>
+             <div class="slds-align_absolute-center" ><lightning-button label="View Details" onclick={handleBoatRecord} ></lightning-button></div>
+        </lightning-card>
+</template>

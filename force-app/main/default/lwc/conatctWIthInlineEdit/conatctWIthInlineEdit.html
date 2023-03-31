@@ -1,0 +1,55 @@
+<template>
+	<lightning-card variant="Narrow" title="Contacts List" icon-name="standard:account">
+
+		<div class="slds-p-around_x-small">
+			<lightning-input label="First Name" id="fname" value={firstName} onchange={handleInputChange}>
+			</lightning-input>
+			<lightning-input label="Last Name" class="lName" id="lname" value={LastName}
+				onchange={handleInputChange} required>
+			</lightning-input>
+			<lightning-input label="Email" id="email" value={email} onchange={handleInputChange}>
+			</lightning-input>
+			<lightning-combobox name="Status" label="Status" value={value} 
+				options={options} onchange={handleStatusChange}></lightning-combobox>
+		</div>
+		<div class="slds-align_absolute-center slds-var-p-top_xx-small">
+			<button title="Cancel" id="cancelBtn" class="slds-button slds-button_text-destructive cancelBtn"
+				onclick={handleCancel}>Cancel</button>
+			<button title="Save" id="SaveBtn" class="slds-button slds-button_brand SaveBtn"
+				onclick={handleSave}>Save</button>
+		</div>
+
+		<lightning-layout if:true={isContactCreated}>
+			<div class="slds-tabs_default">
+				<ul class="slds-tabs_default__nav" role="tablist">
+					<li class="slds-tabs_default__item" title="Item One" role="presentation"  onclick={handleTabChange}>
+						<a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true"
+							aria-controls="tab-default-1" id="tab1" >New</a>
+					</li>
+					<li class="slds-tabs_default__item" title="Item Two" role="presentation" id="newTwo" onclick={handleTabChange}>
+						<a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+							aria-controls="tab-default-2" id="tab2">Existing</a>
+					</li>
+					<li class="slds-tabs_default__item" title="Item Three" role="presentation" id="newThree" onclick={handleTabChange}>
+						<a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+							aria-controls="tab-default-3" id="tab3">Referred</a>
+					</li>
+					<li class="slds-tabs_default__item" title="Item Three" role="presentation" id="newFour" onclick={handleTabChange}>
+						<a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+							aria-controls="tab-default-4" id="tab4">Transferred</a>
+					</li>
+				</ul>
+				<div id={tabId} class="slds-tabs_default__content slds-show" role="tabpanel">
+					<div class="slds-p-around_small">
+					<lightning-datatable key-field="Id" data={data} columns={columns} onsave={handleEdit}
+					draft-values={saveDraftValues} 
+					hide-checkbox-column >
+					</lightning-datatable>
+				  </div>
+				</div>
+			</div>
+		</lightning-layout>
+
+	</lightning-card>
+
+</template>

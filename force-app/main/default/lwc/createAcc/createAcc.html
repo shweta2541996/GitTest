@@ -1,0 +1,9 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-input name="Name" label="Name" onchange={handleChange} value={account.Name}></lightning-input>
+            <lightning-input phone="Phone" label="Phone" onchange={handleChange} value={account.Phone}></lightning-input>
+      <lightning-button label="Submit" onclick={onSubmit} ></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

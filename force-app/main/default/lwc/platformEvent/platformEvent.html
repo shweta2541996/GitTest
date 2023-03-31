@@ -1,0 +1,61 @@
+<template>
+	<template if:true={isLoading}>
+		<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+
+	</template>
+	
+    <lightning-card variant="Narrow" title="Conatct List" icon-name="standard:contact">
+		<lightning-layout>
+			<lightning-layout-item size="12">
+				<table
+				class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-var-p-top_xx-small">
+				<thead>
+					<tr class="slds-line-height_reset">
+						<th class="" scope="col">
+							Name
+						</th>
+						<th class="" scope="col">
+							Email
+						</th>
+						<th class="" scope="col">
+							Phone
+						</th>
+						<th class="" scope="col">
+							Status
+						</th>
+						<th class="" scope="col">
+							Link
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <template if:true={data}>
+					<template for:each={data} for:item="item">
+						<tr class="slds-hint-parent" key={item.Id}>
+							<td data-label="First Name">
+								<div class="slds-cell-wrap">{item.Name}</div>
+							</td>
+							<td data-label="Last Name">
+								<div class="slds-cell-wrap">{item.Email}</div>
+							</td>
+							<td data-label="Email">
+								<div class="slds-cell-wrap">{item.Phone}</div>
+							</td>
+							<td data-label="Status">
+								<div class="slds-cell-wrap">{item.Status}</div>
+							</td>
+							<td data-label="Button">
+								<div class="slds-cell-wrap">
+									<lightning-button disabled={item.DisableLink} variant="base" label="Link" title="Link" onclick={handleClick}>
+									</lightning-button>
+								</div>
+							</td>
+						</tr>
+					</template>
+                </template>
+				</tbody>
+			</table>
+			</lightning-layout-item> 
+            </lightning-layout>
+        </lightning-card>
+</template>
