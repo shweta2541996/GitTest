@@ -6,7 +6,7 @@ public with sharing class BadBunchController {
   /**
    * Generates a number of accounts.
    * @returns (Account)
-   * diya
+   * diya patil
    */
   @AuraEnabled(cacheable=false)
   public static Account[] generateRecords(Integer size) {
